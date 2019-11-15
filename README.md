@@ -3,6 +3,15 @@
 
 ## pcl
 
+### Install Required Dependencies
+
+```
+sudo apt-get install libflann1.8 libflann-dev
+sudo apt-get install libeigen3-dev
+sudo apt-get install libboost-all-dev
+sudo apt-get install libvtk5.10-qt4 libvtk5.10 libvtk5-dev
+```
+
 ### bug 1:
 
 ```
