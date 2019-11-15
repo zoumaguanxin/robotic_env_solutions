@@ -1,9 +1,24 @@
-# robotic_repo_solutions
+# robotic_repos_compilation_solutions
 
-# pcl
 
-# opencv
+## pcl
 
-# RTABMap
+### bug 1:
 
-# maplab
+```
+undefined reference to `pcl::search::Search<pcl::PointXYZRGBNormal>::getName[abi:cxx11]() const
+```
+
+### solution:
+
+add the following code or install pcl version > 1.8.0
+```
+#include <pcl/search/impl/search.hpp>
+```
+
+
+## opencv
+
+## RTABMap
+
+## maplab
