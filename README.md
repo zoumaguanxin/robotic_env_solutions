@@ -54,6 +54,8 @@ pcl version > 1.8 is recommended strongly
 
 desktop (recommended)
 
+```
+
 sudo add-apt-repository ppa:graphics-drivers/ppa
 
 sudo apt update
@@ -65,6 +67,8 @@ sudo ubuntu-drivers autoinstall
 or
 
 sudo apt-get install nvidia-xxx
+
+```
 
 or by software & update
 
@@ -115,9 +119,13 @@ if you don't disable it, there will be notation about creating a trusted key whe
 
 alt+ctrl+fn+F1 to `command line mode`. some computer fn is not necessary.
 
+```
+
 sudo service ligthdm stop
 
 sudo ./NVIDIA_DRIVER.run -no-opengl-files
+
+```
 
 no atuomatically build kernel module.
 
@@ -136,7 +144,9 @@ nvidia-smi (show mission).
 
 ## cuda
 
+```
 nvidia-smi
+```
 
 you will find the matched cuda version. and then goto cuda web to download related run file.
 
