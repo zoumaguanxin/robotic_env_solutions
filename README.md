@@ -46,3 +46,112 @@ sudo apt-get install libvtk6-dev libvtk6-qt-dev
 pcl version > 1.8 is recommended strongly
 
 ## maplab
+
+## cuda
+
+### nvidia-driver
+
+desktop (recommended)
+
+sudo add-apt-repository ppa:graphics-drivers/ppa
+
+sudo apt update
+
+ubuntu-drivers devices 
+
+sudo ubuntu-drivers autoinstall
+
+or
+
+sudo apt-get install nvidia-xxx
+
+or by software & update
+
+`Additional Drivers`
+
+notebook
+
+lspci | grep NVIDIA
+
+eg.
+
+```
+NVIDIA Corporation GP108M [GeForce MX150]
+```
+Click [here](https://www.nvidia.com/Download/index.aspx?lang=cn) to download a driver matched with `GeFore MX150`.
+
+And then, there are some necessary prepration.
+
+#### 1. add others graphic drivers to blacklists
+
+sudo gedit /etc/modprobe.d/blacklist.conf 
+
+Append the following:
+
+```
+blacklist vga16fb
+blacklist nouveau
+blacklist rivafb
+blacklist rivatv
+blacklist nvidiafb
+```
+```
+sudo update-initramfs -u
+sudo reboot
+```
+
+```
+lsmod | grep nouveau
+```
+
+### 2. disable security boot
+
+When your computer is powering on, press F2 to BIOS center. Find security boot. Disable it.
+
+if you don't disable it, there will be notation about creating a trusted key when installing it. After creating it, it seems to be necessary to add the key to somewhere.
+
+### 3. note `-no-opengl-files` parameter
+
+alt+ctrl+fn+F1 to `command line mode`. some computer fn is not necessary.
+
+sudo service ligthdm stop
+
+sudo ./NVIDIA_DRIVER.run -no-opengl-files
+
+no atuomatically build kernel module.
+
+ignore gcc version.
+
+no 32 compatiable.
+
+install without register kernel module.
+
+if installation is ok, you will accept a note that the installation is complete.
+
+### 4 CHECK
+
+nvidia-smi (show mission).
+
+
+## cuda
+
+nvidia-smi
+
+you will find the matched cuda version. and then goto cuda web to download related run file.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
