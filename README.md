@@ -52,7 +52,7 @@ pcl version > 1.8 is recommended strongly
 
 ### nvidia-driver
 
-**desktop (recommended)
+**desktop (recommended)**
 
 ```
 
@@ -74,7 +74,7 @@ or by software & update
 
 `Additional Drivers`
 
-**notebook(recommended method)
+**notebook(recommended method)**
 
 lspci | grep NVIDIA
 
