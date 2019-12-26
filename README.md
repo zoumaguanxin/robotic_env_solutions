@@ -151,6 +151,14 @@ nvidia-smi
 you will find the matched cuda version. and then goto cuda web to download related run file.
 
 
+## Common Bug
+
+### 1 undefined reference for Eigen::MatrixBase
+
+### solution C1:
+Make sure that all depencies use same Eigen Version
+
+
 
 
 
