@@ -157,11 +157,11 @@ Eigen is used widely in robotic repos. Such as, ceres, sophus, pangolin, pcl, an
 
 A case:
 
-Eigen3.3.7 are used as our main project dependencies. Before starting projects, the my pangolin is installed using Eigen 3.3.2, but I didn't use it, so I ignore it. A new fuction that depends on pangolin library needed to be assembled into my project. When I commplied it, the following problem ld error happened.
+Eigen3.3.7 are used as our main project dependencies. Before starting projects,my pangolin is installed using Eigen 3.3.2, but I didn't use it, so I ignore it. A new fuction that depends on pangolin library needed to be assembled into my project. When I commplied it, a link error happened. The solution is recomipling pangolin with Eigen 3.3.7.
 
 Second case:
 
-This case is considerably implicated. I make sure that I use an only one sophus library, but the complier noted me that the opreator* about SE3 can not be used correctly. In fact, because I use pcl_ros package that include Eigen 3.3.2, at the smae time my main project include eigen 3.3.7, so when I call SE3<T>*SE3<T>, the template parameter T of two `SE3<T>` didn't use same T. SE3 * SE3 didn't work. Of course, reducting the pcl_ros is a solution instead of making pcl_ros include Eigen 3.3.7.  
+This case is considerably implicated. I make sure that I use an only one sophus library, but the complier noted me that the opreator* about SE3 can not be used correctly. In fact, because I used pcl_ros package that default include Eigen 3.3.2, at the smae time my main project includes eigen 3.3.7, so when I call SE3<T>*SE3<T>, the template parameter T of two `SE3<T>` didn't use same T. SE3 * SE3 didn't work. Of course, reducing the pcl_ros is a solution instead of making pcl_ros include Eigen 3.3.7.  
 
 ### 1 ld error: undefined reference for Eigen::MatrixBase
 
