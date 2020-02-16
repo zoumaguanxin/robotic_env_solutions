@@ -111,9 +111,9 @@ lsmod | grep nouveau
 
 ### 2. disable security boot
 
-When your computer is powering on, press F2 to BIOS center. Find security boot. Disable it.
+When your computer is powering on, press F2 to BIOS center. Find security boot. Disable it. 
 
-if you don't disable it, there will be notation about creating a trusted key when installing it. After creating it, it seems to be necessary to add the key to somewhere.
+if you don't disable it, there will be notation about creating a trusted key when installing nvidia driver. Then you chooese creating it, it seems to be necessary to add the key to somewhere. So That mean that you might failed to install nvidia driver.
 
 ### 3. note `-no-opengl-files` parameter
 
@@ -153,13 +153,20 @@ you will find the matched cuda version. and then goto cuda web to download relat
 
 ## Common Bug
 
+Eigen is used widely in robotic repos. Such as, ceres, sophus, pangolin, pcl, and some ros packages, and so on. When you create your projects, you must be careful that you should use the same Eigen version. That mean the main project and its all dependencies that depend on Eigen library should comiple with same Eigen version. Using different eigen version might cause losts of bug in compiling period or link period, of course, sometimes you might be fortunate. if you are not aware this point, the debug will be a long period. 
+
+A case:
+
+Eigen3.3.7 are used as our main project dependencies. Before starting projects, the my pangolin is installed using Eigen 3.3.2, but I didn't use it, so I ignore it. A new fuction that depends on pangolin library needed to be assembled into my project. When I commplied it, the following problem ld error happened.
+
+Second case:
+
+This case is considerably implicated. I make sure that I use an only one sophus library, but the complier noted me that the opreator* about SE3 can not be used correctly. In fact, because I use pcl_ros package that include Eigen 3.3.2, at the smae time my main project include eigen 3.3.7, so when I call SE3<T>*SE3<T>, the template parameter T of two `SE3<T>` didn't use same T. SE3 * SE3 didn't work. Of course, reducting the pcl_ros is a solution instead of making pcl_ros include Eigen 3.3.7.  
+
 ### 1 ld error: undefined reference for Eigen::MatrixBase
 
 ### solution C1:
 Make sure that all depencies use a same Eigen Version
-
-
-
 
 
 
