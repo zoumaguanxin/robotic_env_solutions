@@ -153,7 +153,7 @@ you will find the matched cuda version. and then goto cuda web to download relat
 
 ## Common Bug
 
-Eigen is used widely in robotic repos. Such as, ceres, sophus, pangolin, pcl, and some ros packages, and so on. When you create your projects, you must be careful that you should use the same Eigen version. That mean the main project and its all dependencies that depend on Eigen library should comiple with same Eigen version. Using different eigen version might cause losts of bug in compiling period or link period, of course, sometimes you might be fortunate. if you are not aware this point, the debug will be a long period. 
+Eigen is used widely in robotic repos. Such as, ceres, sophus, pangolin, pcl, and some ros packages, and so on. When you create your projects, you must be careful that you should use the same Eigen version. That mean the main project and its all dependencies that depend on Eigen library should comiple with same Eigen version. Using different eigen version might cause losts of bug in compiling period or link period, of course, sometimes you might be fortunate. if you didn't aware this point, debuging will be a long period. 
 
 A case:
 
