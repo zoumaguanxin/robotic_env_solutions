@@ -54,6 +54,13 @@ pcl version > 1.8 is recommended strongly
 
 **desktop (recommended)**
 
+1. Disable security boot
+
+When your computer is powering on, press F2 to BIOS center. Find security boot. Disable it. 
+if you didn't do this, the nvidia-smi will not work
+
+2. install
+
 ```
 
 sudo add-apt-repository ppa:graphics-drivers/ppa
@@ -148,7 +155,7 @@ nvidia-smi (show mission).
 nvidia-smi
 ```
 
-you will find the matched cuda version. and then goto cuda web to download related run file.
+you will find the matched cuda version. and then goto cuda [web](https://developer.nvidia.com/cuda-toolkit-archive) to download related run file.
 
 
 ## Common Bug
