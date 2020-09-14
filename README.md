@@ -40,6 +40,14 @@ sudo apt-get install libvtk6-dev libvtk6-qt-dev
 ## opencv
 
 ## RTABMap
+### recommened denpencies
+```
+sudo apt-get install ros-kinetic-rtabmap ros-kinetic-rtabmap-ros
+sudo apt-get remove ros-kinetic-rtabmap ros-kinetic-rtabmap-ros
+```
+**g2o**
+**GTSAM**
+**libpointmatcher**
 
 ### Install Required Denpendies
 
