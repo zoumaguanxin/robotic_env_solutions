@@ -90,7 +90,7 @@ eg.
 ```
 NVIDIA Corporation GP108M [GeForce MX150]
 ```
-Click [here](https://www.nvidia.com/Download/index.aspx?lang=cn) to download a driver matched with `GeFore MX150`.
+Click [here](https://www.nvidia.com/Download/index.aspx?lang=cn) to download a driver matched with `GeFore MX150`. note that you should download the version relative to your system version, eg, ubuntu 18.04 or 16.04. Dismatched system version also will cause your installation failure.
 
 And then, there are some necessary prepration.
 
@@ -158,7 +158,7 @@ nvidia-smi
 you will find the matched cuda version. and then goto cuda [web](https://developer.nvidia.com/cuda-toolkit-archive) to download related run file.
 
 
-## Common Bug
+## Eigen
 
 Eigen is used widely in robotic repos. Such as, ceres, sophus, pangolin, pcl, and some ros packages, and so on. When you create your projects, you must be careful that you should use the same Eigen version. That mean the main project and its all dependencies that depend on Eigen library should comiple with same Eigen version. Using different eigen version might cause losts of bug in compiling period or link period, of course, sometimes you might be fortunate. if you didn't aware this point, debuging will be a long period. 
 
@@ -170,10 +170,12 @@ Second case:
 
 This case is considerably implicated. I make sure that I use an only one sophus library, but the complier noted me that the opreator* about SE3 can not be used correctly. In fact, because I used pcl_ros package that default include Eigen 3.3.2, at the smae time my main project includes eigen 3.3.7, so when I call SE3<T>*SE3<T>, the template parameter T of two `SE3<T>` didn't use same T. SE3 * SE3 didn't work. Of course, reducing the pcl_ros is a solution instead of making pcl_ros include Eigen 3.3.7.  
 
+
+
 ### 1 ld error: undefined reference for Eigen::MatrixBase
 
 ### solution C1:
-Make sure that all depencies use a same Eigen Version
+Make sure that all depencies use a same Eigen Version. A simple solution is to retain only one high version Eigen. You can install it in 'usr/' directory to cover old version
 
 
 
