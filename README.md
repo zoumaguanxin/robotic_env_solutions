@@ -14,6 +14,7 @@ you shoul use the port instead 41091 that your vpn use actually.
 
 对于一些秘钥无法curl下载，可以网页下载下来后手动添加。或者为curl 和 wget等都设置代理
 
+```
 # 修改shell配置文件 ~/.bashrc ~/.zshrc等
 export http_proxy=socks5://127.0.0.1:1024
 export https_proxy=$http_proxy
@@ -23,6 +24,7 @@ export https_proxy=$http_proxy
 # 不需要时输入命令 unsetproxy
 alias setproxy="export http_proxy=socks5://127.0.0.1:1024; export https_proxy=$http_proxy; echo 'HTTP Proxy on';"
 alias unsetproxy="unset http_proxy; unset https_proxy; echo 'HTTP Proxy off';"
+```
 
 # robotic_repos_compilation_solutions
 
