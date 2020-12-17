@@ -5,7 +5,7 @@
 ```
 sudo vim /etc/apt/apt.conf
 ```
-添加如下
+add the following
 ```
 Acquire::http::Proxy "http://127.0.0.1:41091";
 Acquire::https::Proxy "https://127.0.0.1:41091";
@@ -63,6 +63,14 @@ can not find QVTK_LIBRARY
 ### solution:
 ```
 sudo apt-get install libvtk6-dev libvtk6-qt-dev  
+```
+### Bug 3:
+
+有关pcl的一些程序，在一些电脑上，程序并没有写错，但总是在运行结束或者函数返回的出现地方段错误。修改以下编译选项可以解决：
+```
+set(CMAKE_BUILD_TYPE "Release")
+set(CMAKE_CXX_FLAGS "-std=c++11")
+set(CMAKE_CXX_FLAGS_RELEASE "-O3 -Wall -g")
 ```
 
 ## opencv
