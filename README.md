@@ -26,6 +26,15 @@ alias setproxy="export http_proxy=socks5://127.0.0.1:1024; export https_proxy=$h
 alias unsetproxy="unset http_proxy; unset https_proxy; echo 'HTTP Proxy off';"
 ```
 
+
+## 修改curl配置文件
+
+vim ~/.curlrc
+```
+socks5 = "127.0.0.1:1090"
+```
+注意，设置了代理可能会导致使用curl访问远程服务时无法连接
+
 # robotic_repos_compilation_solutions
 
 
