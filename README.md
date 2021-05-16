@@ -105,6 +105,8 @@ pcl version > 1.8 is recommended strongly
 
 ### nvidia-driver
 
+貌似有一些驱动和ubuntu某些内核不兼容，如果一下方法始终无法成功安装时，可以考虑使用低一点版本的nvidia驱动
+
 **desktop (recommended)**
 
 1. Disable security boot
@@ -173,6 +175,11 @@ lsmod | grep nouveau
 
 When your computer is powering on, press F2 to BIOS center. Find security boot. Disable it. 
 
+有一些主板不支持关闭安全启动，考虑关闭安全启动内容中其他相关选项。又或者可以考虑使用如下方法：
+```
+sudo mokutil --disable-validation
+```
+
 if you don't disable it, there will be notation about creating a trusted key when installing nvidia driver. Then you chooese creating it, it seems to be necessary to add the key to somewhere. So That mean that you might failed to install nvidia driver.
 
 ### 3. note `-no-opengl-files` parameter
@@ -201,6 +208,12 @@ if installation is ok, you will accept a note that the installation is complete.
 
 nvidia-smi (show mission).
 
+如果出现无法交互，考虑安装dkms, 
+```
+sudo apt-get install dkms
+sudo dkms install -m nvidia -v 418.56(对应自己安装的版本号)
+```
+如果以上方法都无法成功，则考虑换ubuntu版本或者nvidia驱动版本
 
 ## cuda
 
@@ -208,7 +221,7 @@ nvidia-smi (show mission).
 nvidia-smi
 ```
 
-you will find the matched cuda version. and then goto cuda [web](https://developer.nvidia.com/cuda-toolkit-archive) to download related run file.
+you will find the matched cuda version. and then goto cuda [web](https://developer.nvidia.com/cuda-toolkit-archive) to download related run file. cuda版本和nvidia驱动有一定对应关系，一般来讲，cuda版本越高，通常只兼容更高版本的nvidia驱动。cuda一般要求nvida版本驱动大于等于多少。
 
 
 ## Eigen
