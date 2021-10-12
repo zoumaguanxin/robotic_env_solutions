@@ -33,7 +33,7 @@ vim ~/.curlrc
 ```
 socks5 = "127.0.0.1:1090"
 ```
-注意，设置了代理可能会导致使用curl访问远程服务时无法连接
+注意，设置了代理可能会导致某些项目使用curl访问远程服务时无法连接，此时要关闭代理
 
 # robotic_repos_compilation_solutions
 
