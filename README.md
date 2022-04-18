@@ -156,11 +156,8 @@ sudo gedit /etc/modprobe.d/blacklist.conf
 Append the following:
 
 ```
-blacklist vga16fb
 blacklist nouveau
-blacklist rivafb
-blacklist rivatv
-blacklist nvidiafb
+options nouveau modeset=0
 ```
 ```
 sudo update-initramfs -u
@@ -188,9 +185,9 @@ alt+ctrl+fn+F1 to `command line mode`. some computer fn is not necessary.
 
 ```
 
-sudo service ligthdm stop
+sudo service ligthdm stop //如果显示不能加载，则忽略这一步骤
 
-sudo ./NVIDIA_DRIVER.run -no-opengl-files
+sudo ./NVIDIA_DRIVER.run -no-opengl-files -no-x-check -no-nouveau-check --disable-nouveau
 
 ```
 
@@ -198,19 +195,41 @@ no atuomatically build kernel module.
 
 ignore gcc version.
 
-no 32 compatiable.
 
-install without register kernel module.
+
+```
+Would you like to register the kernel module souces with DKMS? This will allow DKMS to automatically build a new module, if you install a different kernel later? 
+NO 大多数情况都可以选择no
+YES 需要先安装好dkms, 选择yes有一个好处就是当内核升级时不需要再重新安装显卡。
+
+```
+```
+Nvidia's 32-bit compatibility libraries?
+
+No
+```
+
+```
+Would you like to run the nvidia-xconfigutility to automatically update your x configuration so that the NVIDIA x driver will be used when you restart x? Any pre-existing x confile will be backed up.
+
+YES
+```
+
 
 if installation is ok, you will accept a note that the installation is complete.
 
 ### 4 CHECK
+
+```
+modprobe nvidia
+```
 
 nvidia-smi (show mission).
 
 如果出现无法交互，考虑安装dkms, 
 ```
 sudo apt-get install dkms
+ls /usr/src
 sudo dkms install -m nvidia -v 418.56(对应自己安装的版本号)
 ```
 如果以上方法都无法成功，则考虑换ubuntu版本或者nvidia驱动版本
