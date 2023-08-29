@@ -105,6 +105,11 @@ pcl version > 1.8 is recommended strongly
 
 ### nvidia-driver
 
+首先查看显卡是否挂载成功。有时候重启可能会掉，最好每次都检查
+```
+lspci | grep -i nvidia
+```
+
 貌似有一些驱动和ubuntu某些内核不兼容，如果一下方法始终无法成功安装时，可以考虑使用低一点版本的nvidia驱动
 
 **desktop (recommended)**
